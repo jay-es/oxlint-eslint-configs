@@ -1,16 +1,16 @@
 {
-  "name": "oxlint-config",
+  "name": "@jay-es/oxlint-config",
   "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "description": "oxlint configs generated from ESLint's official recommended/all configs, filtered to rules oxlint supports.",
+  "homepage": "https://github.com/jay-es/oxlint-config#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/jay-es/oxlint-config/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
+  "author": "jay-es",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/jay-es/oxlint-config.git"
   },
   "files": [
     "dist"
@@ -18,6 +18,7 @@
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
+    "./*": "./dist/*.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -28,15 +29,28 @@
     "dev": "vp pack --watch",
     "test": "vp test",
     "check": "vp check",
+    "generate": "node scripts/generate.ts",
+    "postbuild": "pnpm run generate",
     "prepublishOnly": "vp run build",
     "prepare": "vp config"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^25.6.2",
     "@typescript/native-preview": "7.0.0-dev.20260509.2",
     "bumpp": "^11.1.0",
+    "oxlint": "^1.72.0",
     "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1",
     "vite-plus": "^0.1.20"
+  },
+  "peerDependencies": {
+    "oxlint": "*"
+  },
+  "peerDependenciesMeta": {
+    "oxlint": {
+      "optional": true
+    }
   },
   "packageManager": "pnpm@11.9.0"
 }

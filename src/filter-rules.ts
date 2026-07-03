@@ -1,0 +1,37 @@
+import { getOxlintRulesByPlugin } from "./oxlint-schema.ts";
+import { parseRuleKey } from "./parse-rule-key.ts";
+
+/**
+ * ESLint 系のプラグイン名から、oxlint の configuration schema 上でのプラグイン名への対応表。
+ * ここに載っていないプラグインのルールは oxlint 非対応として除外される。
+ * ファイル名の接頭辞にもこの値を使う(例: "typescript-recommended.js")。
+ */
+export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
+  eslint: "eslint",
+  "@typescript-eslint": "typescript",
+};
+
+function toOxlintRuleKey(oxlintPlugin: string, ruleName: string): string {
+  return oxlintPlugin === "eslint" ? ruleName : `${oxlintPlugin}/${ruleName}`;
+}
+
+/**
+ * rules のうち、oxlint が対応しているルールだけを残し、キーを oxlint の命名規則
+ * (例: "@typescript-eslint/no-explicit-any" → "typescript/no-explicit-any")に変換する。
+ * 複数プラグインのルールが混在する config でもそのまま渡せる。
+ */
+export function filterSupportedRules(rules: Record<string, unknown>): Record<string, unknown> {
+  const oxlintRulesByPlugin = getOxlintRulesByPlugin();
+  const result: Record<string, unknown> = {};
+
+  for (const [ruleKey, value] of Object.entries(rules)) {
+    const [sourcePlugin, ruleName] = parseRuleKey(ruleKey);
+    const oxlintPlugin = OXLINT_PLUGIN_NAME_BY_SOURCE[sourcePlugin];
+    if (oxlintPlugin === undefined) continue;
+    if (!oxlintRulesByPlugin[oxlintPlugin]?.has(ruleName)) continue;
+
+    result[toOxlintRuleKey(oxlintPlugin, ruleName)] = value;
+  }
+
+  return result;
+}
