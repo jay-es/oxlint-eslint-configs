@@ -1,6 +1,6 @@
 {
   "name": "@jay-es/oxlint-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "oxlint configs generated from ESLint's official recommended/all configs, filtered to rules oxlint supports.",
   "homepage": "https://github.com/jay-es/oxlint-config#readme",
   "bugs": {
