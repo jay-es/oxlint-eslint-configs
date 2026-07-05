@@ -1,4 +1,4 @@
-# @jay-es/oxlint-config
+# @jay-es/oxlint-eslint-configs
 
 Ready-to-use [oxlint](https://oxc.rs/docs/guide/usage/linter.html) configs generated from popular ESLint configs (`@eslint/js`, `typescript-eslint`, ...), filtered down to only the rules oxlint actually supports.
 
@@ -9,8 +9,8 @@ Each source config is mechanically filtered against oxlint's own [configuration 
 Each config is published as a subpath export. Import the `rules` object and spread it into your `.oxlintrc.json` (or `oxlint.config.ts`) `rules` field.
 
 ```ts
-import { rules as recommended } from "@jay-es/oxlint-config/eslint-recommended";
-import { rules as tsRecommended } from "@jay-es/oxlint-config/typescript-recommended";
+import { rules as recommended } from "@jay-es/oxlint-eslint-configs/eslint-recommended";
+import { rules as tsRecommended } from "@jay-es/oxlint-eslint-configs/typescript-recommended";
 
 export default {
   rules: {
@@ -53,7 +53,7 @@ More plugins (react-hooks, import, unicorn, ...) are planned.
 If you want to filter a config from a plugin this package doesn't cover yet, you can use the exported utilities directly:
 
 ```ts
-import { filterSupportedRules, mergeFlatConfigRules } from "@jay-es/oxlint-config";
+import { filterSupportedRules, mergeFlatConfigRules } from "@jay-es/oxlint-eslint-configs";
 
 // Works with a plain rules object...
 const rules = filterSupportedRules({ "no-unused-vars": "error" });

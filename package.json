@@ -1,16 +1,16 @@
 {
-  "name": "@jay-es/oxlint-config",
+  "name": "@jay-es/oxlint-eslint-configs",
   "version": "0.1.0",
   "description": "oxlint configs generated from ESLint's official recommended/all configs, filtered to rules oxlint supports.",
-  "homepage": "https://github.com/jay-es/oxlint-config#readme",
+  "homepage": "https://github.com/jay-es/oxlint-eslint-configs#readme",
   "bugs": {
-    "url": "https://github.com/jay-es/oxlint-config/issues"
+    "url": "https://github.com/jay-es/oxlint-eslint-configs/issues"
   },
   "license": "MIT",
   "author": "jay-es",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jay-es/oxlint-config.git"
+    "url": "git+https://github.com/jay-es/oxlint-eslint-configs.git"
   },
   "files": [
     "dist"
