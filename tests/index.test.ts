@@ -29,3 +29,25 @@ test("typescript-eslint recommended rules supported by oxlint are renamed to the
   // typescript-eslint の recommended には含まれるが、oxlint の対応表には存在しないルールの例
   expect(filtered["typescript/no-array-constructor"]).toBeUndefined();
 });
+
+test("filterSupportedRules restores the base rule when its oxlint-unsupported plugin counterpart disabled it", () => {
+  // typescript-eslint の "all" などにある典型的なパターン:
+  // ベースルールを off にしつつ、プラグイン独自版を有効化する
+  const filtered = filterSupportedRules({
+    "class-methods-use-this": "off",
+    "@typescript-eslint/class-methods-use-this": "error",
+  });
+
+  // oxlint は typescript/class-methods-use-this を持たないため、
+  // ベースルール側にプラグイン版の設定値を復元する
+  expect(filtered).toStrictEqual({ "class-methods-use-this": "error" });
+});
+
+test("typescript-eslint all config keeps class-methods-use-this enabled", async () => {
+  const tseslint = await import("typescript-eslint");
+  const merged = mergeFlatConfigRules(tseslint.default.configs.all);
+  const filtered = filterSupportedRules(merged);
+
+  expect(filtered["class-methods-use-this"]).toBe("error");
+  expect(filtered["typescript/class-methods-use-this"]).toBeUndefined();
+});

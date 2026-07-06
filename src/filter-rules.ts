@@ -33,5 +33,24 @@ export function filterSupportedRules(rules: Record<string, unknown>): Record<str
     result[toOxlintRuleKey(oxlintPlugin, ruleName)] = value;
   }
 
+  // typescript-eslint など一部のプラグインは、eslint 本体のルールと同名のルールを
+  // 提供し、その代わりに同名の eslint 本体ルールを "off" にする(例: "no-unused-vars")。
+  // oxlint がプラグイン側のルールに未対応の場合、素直にフィルタすると両方消えて
+  // 何もチェックされなくなってしまうため、oxlint が eslint 本体側のルールには対応している場合は
+  // そちらの名前でプラグイン側の設定値を復元する。
+  for (const [ruleKey, value] of Object.entries(rules)) {
+    const [sourcePlugin, ruleName] = parseRuleKey(ruleKey);
+    if (sourcePlugin === "eslint") continue;
+
+    const oxlintPlugin = OXLINT_PLUGIN_NAME_BY_SOURCE[sourcePlugin];
+    if (oxlintPlugin === undefined) continue;
+    if (oxlintRulesByPlugin[oxlintPlugin]?.has(ruleName)) continue;
+
+    const isDisabledInFavorOfPluginRule = rules[ruleName] === "off";
+    if (isDisabledInFavorOfPluginRule && oxlintRulesByPlugin.eslint?.has(ruleName)) {
+      result[ruleName] = value;
+    }
+  }
+
   return result;
 }
