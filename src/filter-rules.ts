@@ -9,6 +9,7 @@ import { parseRuleKey } from "./parse-rule-key.ts";
 export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   eslint: "eslint",
   "@typescript-eslint": "typescript",
+  unicorn: "unicorn",
 };
 
 function toOxlintRuleKey(oxlintPlugin: string, ruleName: string): string {

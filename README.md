@@ -46,7 +46,15 @@ export default {
 | `typescript-all`                           | [`all`](https://typescript-eslint.io/users/configs/#all)                                                  |
 | `typescript-disable-type-checked`          | [`disableTypeChecked`](https://typescript-eslint.io/users/configs/#disable-type-checked)                  |
 
-More plugins (react-hooks, import, unicorn, ...) are planned.
+### [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)
+
+| Config                  | Source                                                                                   |
+| ----------------------- | ---------------------------------------------------------------------------------------- |
+| `unicorn-recommended`   | [`recommended`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)   |
+| `unicorn-unopinionated` | [`unopinionated`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-) |
+| `unicorn-all`           | [`all`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)           |
+
+More plugins (react-hooks, import, ...) are planned.
 
 ## Advanced: building your own filtered config
 
