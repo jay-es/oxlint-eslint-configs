@@ -10,6 +10,9 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   eslint: "eslint",
   "@typescript-eslint": "typescript",
   unicorn: "unicorn",
+  // oxlint は import/ 名前空間のみを持つ (import-x/ は存在しない)ため、
+  // よりメンテされている eslint-plugin-import-x を取得元にしつつ import に変換する。
+  "import-x": "import",
 };
 
 function toOxlintRuleKey(oxlintPlugin: string, ruleName: string): string {

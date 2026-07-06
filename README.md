@@ -54,7 +54,20 @@ export default {
 | `unicorn-unopinionated` | [`unopinionated`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-) |
 | `unicorn-all`           | [`all`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)           |
 
-More plugins (react-hooks, import, ...) are planned.
+### [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x)
+
+oxlint only has an `import/` namespace (no `import-x/`), so these are sourced from the
+better-maintained `eslint-plugin-import-x` and its rules are renamed to the `import/` prefix.
+
+| Config               | Source                                                                       |
+| -------------------- | ---------------------------------------------------------------------------- |
+| `import-recommended` | [`recommended`](https://github.com/un-ts/eslint-plugin-import-x#recommended) |
+| `import-errors`      | [`errors`](https://github.com/un-ts/eslint-plugin-import-x#errors)           |
+| `import-warnings`    | [`warnings`](https://github.com/un-ts/eslint-plugin-import-x#warnings)       |
+| `import-stage-0`     | [`stage-0`](https://github.com/un-ts/eslint-plugin-import-x#stage-0)         |
+| `import-typescript`  | [`typescript`](https://github.com/un-ts/eslint-plugin-import-x#typescript)   |
+
+More plugins are planned.
 
 ## Advanced: building your own filtered config
 
