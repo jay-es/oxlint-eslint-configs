@@ -73,12 +73,15 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 | --------------------- | -------------------------------------------------------------------------------- |
 | `promise-recommended` | [`recommended`](https://github.com/eslint-community/eslint-plugin-promise#usage) |
 
-More plugins are planned.
+### [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)
 
-oxlint's `node` plugin is currently skipped: it only reimplements
-a handful of rules from the long-deprecated `eslint-plugin-node` (not the actively maintained
-`eslint-plugin-n`, which uses different rule names entirely), so there's no good upstream config
-to mechanically port from yet.
+| Config                    | Source                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------ |
+| `node-recommended-module` | [`recommended-module`](https://github.com/eslint-community/eslint-plugin-n#-configs) |
+| `node-recommended-script` | [`recommended-script`](https://github.com/eslint-community/eslint-plugin-n#-configs) |
+| `node-all`                | [`flat/all`](https://github.com/eslint-community/eslint-plugin-n#-configs)           |
+
+More plugins are planned.
 
 ## Advanced: building your own filtered config
 

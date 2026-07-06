@@ -14,6 +14,7 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   // よりメンテされている eslint-plugin-import-x を取得元にしつつ import に変換する。
   "import-x": "import",
   promise: "promise",
+  n: "node",
 };
 
 function toOxlintRuleKey(oxlintPlugin: string, ruleName: string): string {
