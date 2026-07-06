@@ -1,6 +1,7 @@
 import type { ConfigBuilder } from "../generated-config.ts";
 import { buildEslintJsConfigs } from "./eslint-js.ts";
 import { buildEslintPluginImportXConfigs } from "./eslint-plugin-import-x.ts";
+import { buildEslintPluginPromiseConfigs } from "./eslint-plugin-promise.ts";
 import { buildEslintPluginUnicornConfigs } from "./eslint-plugin-unicorn.ts";
 import { buildTypescriptEslintConfigs } from "./typescript-eslint.ts";
 
@@ -11,4 +12,5 @@ export const CONFIG_BUILDERS: ConfigBuilder[] = [
   buildTypescriptEslintConfigs,
   buildEslintPluginUnicornConfigs,
   buildEslintPluginImportXConfigs,
+  buildEslintPluginPromiseConfigs,
 ];

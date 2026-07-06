@@ -67,7 +67,18 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 | `import-stage-0`     | [`stage-0`](https://github.com/un-ts/eslint-plugin-import-x#stage-0)         |
 | `import-typescript`  | [`typescript`](https://github.com/un-ts/eslint-plugin-import-x#typescript)   |
 
+### [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)
+
+| Config                | Source                                                                           |
+| --------------------- | -------------------------------------------------------------------------------- |
+| `promise-recommended` | [`recommended`](https://github.com/eslint-community/eslint-plugin-promise#usage) |
+
 More plugins are planned.
+
+oxlint's `node` plugin is currently skipped: it only reimplements
+a handful of rules from the long-deprecated `eslint-plugin-node` (not the actively maintained
+`eslint-plugin-n`, which uses different rule names entirely), so there's no good upstream config
+to mechanically port from yet.
 
 ## Advanced: building your own filtered config
 
