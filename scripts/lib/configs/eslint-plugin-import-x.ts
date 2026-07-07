@@ -24,7 +24,7 @@ export function buildEslintPluginImportXConfigs(): GeneratedConfig[] {
   return Object.entries(importX.configs)
     .filter(([name]) => INCLUDED_CONFIG_NAMES.has(name))
     .map(([name, config]) => ({
-      fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(name)}.js`,
+      fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(name)}.js`,
       rules: filterSupportedRules(mergeFlatConfigRules(config)),
       source: `eslint-plugin-import-x ${name} config`,
     }));

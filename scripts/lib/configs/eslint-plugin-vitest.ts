@@ -17,7 +17,7 @@ export function buildEslintPluginVitestConfigs(): GeneratedConfig[] {
   return Object.entries(vitest.configs)
     .filter(([name]) => INCLUDED_CONFIG_NAMES.has(name))
     .map(([name, config]) => ({
-      fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(name)}.js`,
+      fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(name)}.js`,
       rules: filterSupportedRules(mergeFlatConfigRules(config)),
       source: `@vitest/eslint-plugin ${name} config`,
     }));

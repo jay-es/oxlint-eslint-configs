@@ -24,7 +24,7 @@ export function buildEslintPluginVueConfigs(): GeneratedConfig[] {
   return Object.entries(vue.configs)
     .filter(([name]) => INCLUDED_CONFIG_NAMES.has(name))
     .map(([name, config]) => ({
-      fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(name.replace("flat/", ""))}.js`,
+      fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(name.replace("flat/", ""))}.js`,
       rules: filterSupportedRules(mergeFlatConfigRules(config)),
       source: `eslint-plugin-vue ${name} config`,
     }));

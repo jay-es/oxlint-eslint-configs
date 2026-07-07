@@ -11,7 +11,7 @@ const OXLINT_FILE_PREFIX = OXLINT_PLUGIN_NAME_BY_SOURCE["jsx-a11y"];
  */
 export function buildEslintPluginJsxA11yConfigs(): GeneratedConfig[] {
   return Object.entries(jsxA11y.configs).map(([name, config]) => ({
-    fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(name)}.js`,
+    fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(name)}.js`,
     rules: filterSupportedRules(mergeFlatConfigRules(config)),
     source: `eslint-plugin-jsx-a11y ${name} config`,
   }));

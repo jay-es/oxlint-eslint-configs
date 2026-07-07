@@ -17,7 +17,7 @@ export function buildEslintPluginUnicornConfigs(): GeneratedConfig[] {
   return Object.entries(unicorn.configs)
     .filter(([name]) => !EXCLUDED_CONFIG_NAMES.has(name))
     .map(([name, config]) => ({
-      fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(name)}.js`,
+      fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(name)}.js`,
       rules: filterSupportedRules(mergeFlatConfigRules(config)),
       source: `eslint-plugin-unicorn ${name} config`,
     }));

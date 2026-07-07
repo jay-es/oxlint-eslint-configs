@@ -12,7 +12,7 @@ export function buildEslintJsConfigs(): GeneratedConfig[] {
   ] as const;
 
   return targets.map((target) => ({
-    fileName: `eslint-${target.name}.js`,
+    fileName: `eslint/${target.name}.js`,
     rules: filterSupportedRules(target.rules),
     source: `@eslint/js ${target.name} config`,
   }));

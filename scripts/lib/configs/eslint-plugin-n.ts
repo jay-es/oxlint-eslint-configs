@@ -25,7 +25,7 @@ export function buildEslintPluginNConfigs(): GeneratedConfig[] {
     .map(([name, config]) => {
       const outputName = CONFIG_NAME_OVERRIDES[name] ?? name;
       return {
-        fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(outputName)}.js`,
+        fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(outputName)}.js`,
         rules: filterSupportedRules(mergeFlatConfigRules(config)),
         source: `eslint-plugin-n ${name} config`,
       };

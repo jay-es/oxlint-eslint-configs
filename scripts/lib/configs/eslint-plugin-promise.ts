@@ -16,7 +16,7 @@ export function buildEslintPluginPromiseConfigs(): GeneratedConfig[] {
   return Object.entries(promise.configs)
     .filter(([name]) => INCLUDED_CONFIG_NAMES.has(name))
     .map(([name, config]) => ({
-      fileName: `${OXLINT_FILE_PREFIX}-${toKebabCase(name)}.js`,
+      fileName: `${OXLINT_FILE_PREFIX}/${toKebabCase(name)}.js`,
       rules: filterSupportedRules(mergeFlatConfigRules(config)),
       source: `eslint-plugin-promise ${name} config`,
     }));
