@@ -15,6 +15,8 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   "import-x": "import",
   promise: "promise",
   n: "node",
+  react: "react",
+  "react-perf": "react-perf",
 };
 
 function toOxlintRuleKey(oxlintPlugin: string, ruleName: string): string {

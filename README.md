@@ -54,6 +54,20 @@ export default {
 | `unicorn-unopinionated` | [`unopinionated`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-) |
 | `unicorn-all`           | [`all`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)           |
 
+### [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react)
+
+| Config              | Source                                                                         |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `react-recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended) |
+| `react-all`         | [`all`](https://github.com/jsx-eslint/eslint-plugin-react#all)                 |
+
+### [`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf)
+
+| Config                   | Source        |
+| ------------------------ | ------------- |
+| `react-perf-recommended` | `recommended` |
+| `react-perf-all`         | `all`         |
+
 ### [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x)
 
 oxlint only has an `import/` namespace (no `import-x/`), so these are sourced from the
@@ -67,12 +81,6 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 | `import-stage-0`     | [`stage-0`](https://github.com/un-ts/eslint-plugin-import-x#stage-0)         |
 | `import-typescript`  | [`typescript`](https://github.com/un-ts/eslint-plugin-import-x#typescript)   |
 
-### [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)
-
-| Config                | Source                                                                           |
-| --------------------- | -------------------------------------------------------------------------------- |
-| `promise-recommended` | [`recommended`](https://github.com/eslint-community/eslint-plugin-promise#usage) |
-
 ### [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)
 
 | Config                    | Source                                                                               |
@@ -80,6 +88,12 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 | `node-recommended-module` | [`recommended-module`](https://github.com/eslint-community/eslint-plugin-n#-configs) |
 | `node-recommended-script` | [`recommended-script`](https://github.com/eslint-community/eslint-plugin-n#-configs) |
 | `node-all`                | [`flat/all`](https://github.com/eslint-community/eslint-plugin-n#-configs)           |
+
+### [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)
+
+| Config                | Source                                                                           |
+| --------------------- | -------------------------------------------------------------------------------- |
+| `promise-recommended` | [`recommended`](https://github.com/eslint-community/eslint-plugin-promise#usage) |
 
 More plugins are planned.
 
