@@ -43,6 +43,7 @@
     "@typescript/native-preview": "7.0.0-dev.20260509.2",
     "bumpp": "^11.1.0",
     "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-jest": "^29.15.4",
     "eslint-plugin-jsdoc": "^63.0.12",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-n": "^18.2.1",

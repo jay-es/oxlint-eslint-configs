@@ -22,6 +22,7 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   "@next/next": "nextjs",
   jsdoc: "jsdoc",
   "jsx-a11y": "jsx-a11y",
+  jest: "jest",
 };
 
 // プラグイン名に "/" を含むもの(例: "@next/next")を正しく切り出せるよう、

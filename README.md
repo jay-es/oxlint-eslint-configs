@@ -124,6 +124,14 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | --------------------- | -------------------------------------------------------------------------------- |
 | `promise-recommended` | [`recommended`](https://github.com/eslint-community/eslint-plugin-promise#usage) |
 
+### [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
+
+| Config             | Source                                                                      |
+| ------------------ | --------------------------------------------------------------------------- |
+| `jest-recommended` | [`recommended`](https://github.com/jest-community/eslint-plugin-jest#rules) |
+| `jest-style`       | [`style`](https://github.com/jest-community/eslint-plugin-jest#rules)       |
+| `jest-all`         | [`all`](https://github.com/jest-community/eslint-plugin-jest#rules)         |
+
 More plugins are planned.
 
 ## Advanced: building your own filtered config
