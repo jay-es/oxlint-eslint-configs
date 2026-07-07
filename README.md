@@ -139,7 +139,22 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `vitest-recommended` | [`recommended`](https://github.com/vitest-dev/eslint-plugin-vitest#rules) |
 | `vitest-all`         | [`all`](https://github.com/vitest-dev/eslint-plugin-vitest#rules)         |
 
-More plugins are planned.
+### [`eslint-plugin-vue`](https://eslint.vuejs.org/rules/)
+
+Non-flat configs (e.g. `recommended`) use `extends` to chain to earlier presets via file
+paths, which isn't resolved when just reading `rules`. The `flat/` configs embed the full
+chain as config array elements instead, so those are used here. Vue 2 presets (`vue2-*`)
+are not included.
+
+| Config                     | Source                                                                                                                                 |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `vue-essential`            | [`flat/essential`](https://eslint.vuejs.org/rules/#priority-a-essential-error-prevention)                                              |
+| `vue-strongly-recommended` | [`flat/strongly-recommended`](https://eslint.vuejs.org/rules/#priority-b-strongly-recommended-improving-readability)                   |
+| `vue-recommended`          | [`flat/recommended`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead)       |
+| `vue-recommended-error`    | [`flat/recommended-error`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead) |
+
+This covers every plugin in oxlint's [Supported plugins](https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins)
+list except `oxc`, which has no upstream ESLint config to port from (it's oxlint's own rule set).
 
 ## Advanced: building your own filtered config
 

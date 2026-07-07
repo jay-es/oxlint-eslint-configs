@@ -11,6 +11,7 @@ import { buildEslintPluginReactConfigs } from "./eslint-plugin-react.ts";
 import { buildEslintPluginReactPerfConfigs } from "./eslint-plugin-react-perf.ts";
 import { buildEslintPluginUnicornConfigs } from "./eslint-plugin-unicorn.ts";
 import { buildEslintPluginVitestConfigs } from "./eslint-plugin-vitest.ts";
+import { buildEslintPluginVueConfigs } from "./eslint-plugin-vue.ts";
 import { buildTypescriptEslintConfigs } from "./typescript-eslint.ts";
 
 // oxlint の Supported plugins の並び順 (https://oxc.rs/docs/guide/usage/linter/plugins.html)
@@ -30,4 +31,5 @@ export const CONFIG_BUILDERS: ConfigBuilder[] = [
   buildEslintPluginPromiseConfigs,
   buildEslintPluginJestConfigs,
   buildEslintPluginVitestConfigs,
+  buildEslintPluginVueConfigs,
 ];

@@ -24,6 +24,7 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   "jsx-a11y": "jsx-a11y",
   jest: "jest",
   vitest: "vitest",
+  vue: "vue",
 };
 
 // プラグイン名に "/" を含むもの(例: "@next/next")を正しく切り出せるよう、
