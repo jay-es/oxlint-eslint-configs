@@ -132,6 +132,13 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `jest-style`       | [`style`](https://github.com/jest-community/eslint-plugin-jest#rules)       |
 | `jest-all`         | [`all`](https://github.com/jest-community/eslint-plugin-jest#rules)         |
 
+### [`@vitest/eslint-plugin`](https://github.com/vitest-dev/eslint-plugin-vitest)
+
+| Config               | Source                                                                    |
+| -------------------- | ------------------------------------------------------------------------- |
+| `vitest-recommended` | [`recommended`](https://github.com/vitest-dev/eslint-plugin-vitest#rules) |
+| `vitest-all`         | [`all`](https://github.com/vitest-dev/eslint-plugin-vitest#rules)         |
+
 More plugins are planned.
 
 ## Advanced: building your own filtered config
