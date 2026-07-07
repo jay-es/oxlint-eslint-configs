@@ -103,6 +103,13 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `jsdoc-recommended-error`      | [`recommended-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)      |
 | `jsdoc-recommended-typescript` | [`recommended-typescript`](https://github.com/gajus/eslint-plugin-jsdoc#recommended) |
 
+### [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+
+| Config                 | Source                                                                      |
+| ---------------------- | --------------------------------------------------------------------------- |
+| `jsx-a11y-recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#usage) |
+| `jsx-a11y-strict`      | [`strict`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#usage)      |
+
 ### [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)
 
 | Config                    | Source                                                                               |

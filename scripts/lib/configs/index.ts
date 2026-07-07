@@ -2,6 +2,7 @@ import type { ConfigBuilder } from "../generated-config.ts";
 import { buildEslintJsConfigs } from "./eslint-js.ts";
 import { buildEslintPluginImportXConfigs } from "./eslint-plugin-import-x.ts";
 import { buildEslintPluginJsdocConfigs } from "./eslint-plugin-jsdoc.ts";
+import { buildEslintPluginJsxA11yConfigs } from "./eslint-plugin-jsx-a11y.ts";
 import { buildEslintPluginNConfigs } from "./eslint-plugin-n.ts";
 import { buildEslintPluginNextConfigs } from "./eslint-plugin-next.ts";
 import { buildEslintPluginPromiseConfigs } from "./eslint-plugin-promise.ts";
@@ -22,6 +23,7 @@ export const CONFIG_BUILDERS: ConfigBuilder[] = [
   buildEslintPluginNextConfigs,
   buildEslintPluginImportXConfigs,
   buildEslintPluginJsdocConfigs,
+  buildEslintPluginJsxA11yConfigs,
   buildEslintPluginNConfigs,
   buildEslintPluginPromiseConfigs,
 ];
