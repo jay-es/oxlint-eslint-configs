@@ -22,14 +22,17 @@ export default {
 
 ## Available configs
 
-### [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)
+This covers every plugin in oxlint's [Supported plugins](https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins)
+list except `oxc`, which has no upstream ESLint config to port from (it's oxlint's own rule set).
+
+### `eslint` ([`@eslint/js`](https://www.npmjs.com/package/@eslint/js))
 
 | Config               | Source                                                                                                    |
 | -------------------- | --------------------------------------------------------------------------------------------------------- |
 | `eslint-recommended` | [`recommended`](https://github.com/eslint/eslint/blob/main/packages/js/src/configs/eslint-recommended.js) |
 | `eslint-all`         | [`all`](https://github.com/eslint/eslint/blob/main/packages/js/src/configs/eslint-all.js)                 |
 
-### [`typescript-eslint`](https://typescript-eslint.io/users/configs/)
+### `typescript` ([`typescript-eslint`](https://typescript-eslint.io/users/configs/))
 
 | Config                                     | Source                                                                                                    |
 | ------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
@@ -46,7 +49,7 @@ export default {
 | `typescript-all`                           | [`all`](https://typescript-eslint.io/users/configs/#all)                                                  |
 | `typescript-disable-type-checked`          | [`disableTypeChecked`](https://typescript-eslint.io/users/configs/#disable-type-checked)                  |
 
-### [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)
+### `unicorn` ([`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-))
 
 | Config                  | Source                                                                                   |
 | ----------------------- | ---------------------------------------------------------------------------------------- |
@@ -54,21 +57,21 @@ export default {
 | `unicorn-unopinionated` | [`unopinionated`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-) |
 | `unicorn-all`           | [`all`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)           |
 
-### [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react)
+### `react` ([`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react))
 
 | Config              | Source                                                                         |
 | ------------------- | ------------------------------------------------------------------------------ |
 | `react-recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended) |
 | `react-all`         | [`all`](https://github.com/jsx-eslint/eslint-plugin-react#all)                 |
 
-### [`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf)
+### `react-perf` ([`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf))
 
 | Config                   | Source        |
 | ------------------------ | ------------- |
 | `react-perf-recommended` | `recommended` |
 | `react-perf-all`         | `all`         |
 
-### [`@next/eslint-plugin-next`](https://nextjs.org/docs/app/api-reference/config/eslint)
+### `nextjs` ([`@next/eslint-plugin-next`](https://nextjs.org/docs/app/api-reference/config/eslint))
 
 Rule keys are registered under the `@next/next` plugin name, which are renamed to the
 `nextjs/` prefix oxlint uses.
@@ -78,7 +81,7 @@ Rule keys are registered under the `@next/next` plugin name, which are renamed t
 | `nextjs-recommended`     | [`recommended`](https://nextjs.org/docs/app/api-reference/config/eslint#recommended-plugin-ruleset) |
 | `nextjs-core-web-vitals` | [`core-web-vitals`](https://nextjs.org/docs/app/api-reference/config/eslint#core-web-vitals)        |
 
-### [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x)
+### `import` ([`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x))
 
 oxlint only has an `import/` namespace (no `import-x/`), so these are sourced from the
 better-maintained `eslint-plugin-import-x` and its rules are renamed to the `import/` prefix.
@@ -91,7 +94,7 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 | `import-stage-0`     | [`stage-0`](https://github.com/un-ts/eslint-plugin-import-x#stage-0)         |
 | `import-typescript`  | [`typescript`](https://github.com/un-ts/eslint-plugin-import-x#typescript)   |
 
-### [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)
+### `jsdoc` ([`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc))
 
 eslint-plugin-jsdoc ships many near-duplicate presets (combinations of contents/logical/
 requirements/stylistic with typescript/tsdoc flavors and error variants). Only the three
@@ -103,14 +106,14 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `jsdoc-recommended-error`      | [`recommended-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)      |
 | `jsdoc-recommended-typescript` | [`recommended-typescript`](https://github.com/gajus/eslint-plugin-jsdoc#recommended) |
 
-### [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+### `jsx-a11y` ([`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y))
 
 | Config                 | Source                                                                      |
 | ---------------------- | --------------------------------------------------------------------------- |
 | `jsx-a11y-recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#usage) |
 | `jsx-a11y-strict`      | [`strict`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#usage)      |
 
-### [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)
+### `node` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n))
 
 | Config                    | Source                                                                               |
 | ------------------------- | ------------------------------------------------------------------------------------ |
@@ -118,13 +121,13 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `node-recommended-script` | [`recommended-script`](https://github.com/eslint-community/eslint-plugin-n#-configs) |
 | `node-all`                | [`flat/all`](https://github.com/eslint-community/eslint-plugin-n#-configs)           |
 
-### [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)
+### `promise` ([`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise))
 
 | Config                | Source                                                                           |
 | --------------------- | -------------------------------------------------------------------------------- |
 | `promise-recommended` | [`recommended`](https://github.com/eslint-community/eslint-plugin-promise#usage) |
 
-### [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
+### `jest` ([`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest))
 
 | Config             | Source                                                                      |
 | ------------------ | --------------------------------------------------------------------------- |
@@ -132,14 +135,14 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `jest-style`       | [`style`](https://github.com/jest-community/eslint-plugin-jest#rules)       |
 | `jest-all`         | [`all`](https://github.com/jest-community/eslint-plugin-jest#rules)         |
 
-### [`@vitest/eslint-plugin`](https://github.com/vitest-dev/eslint-plugin-vitest)
+### `vitest` ([`@vitest/eslint-plugin`](https://github.com/vitest-dev/eslint-plugin-vitest))
 
 | Config               | Source                                                                    |
 | -------------------- | ------------------------------------------------------------------------- |
 | `vitest-recommended` | [`recommended`](https://github.com/vitest-dev/eslint-plugin-vitest#rules) |
 | `vitest-all`         | [`all`](https://github.com/vitest-dev/eslint-plugin-vitest#rules)         |
 
-### [`eslint-plugin-vue`](https://eslint.vuejs.org/rules/)
+### `vue` ([`eslint-plugin-vue`](https://eslint.vuejs.org/rules/))
 
 Non-flat configs (e.g. `recommended`) use `extends` to chain to earlier presets via file
 paths, which isn't resolved when just reading `rules`. The `flat/` configs embed the full
@@ -152,9 +155,6 @@ are not included.
 | `vue-strongly-recommended` | [`flat/strongly-recommended`](https://eslint.vuejs.org/rules/#priority-b-strongly-recommended-improving-readability)                   |
 | `vue-recommended`          | [`flat/recommended`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead)       |
 | `vue-recommended-error`    | [`flat/recommended-error`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead) |
-
-This covers every plugin in oxlint's [Supported plugins](https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins)
-list except `oxc`, which has no upstream ESLint config to port from (it's oxlint's own rule set).
 
 ## Advanced: building your own filtered config
 
