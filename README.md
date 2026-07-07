@@ -6,16 +6,16 @@ Each source config is mechanically filtered against oxlint's own [configuration 
 
 ## Usage
 
-Each config is published as a subpath export under `<plugin>/<config-name>`. Since these
-are plain JS objects, spreading them requires a JS/TS-based `oxlint.config.ts` config
-(oxlint's [`.js`/`.ts` config support](https://oxc.rs/docs/guide/usage/linter/config.html)
+Each config is published as a default export under a `<plugin>/<config-name>` subpath.
+Since these are plain JS objects, spreading them requires a JS/TS-based `oxlint.config.ts`
+config (oxlint's [`.js`/`.ts` config support](https://oxc.rs/docs/guide/usage/linter/config.html)
 is experimental and requires running via Node.js).
 
 ```ts
 // oxlint.config.ts
 import { defineConfig } from "oxlint";
-import { rules as recommended } from "@jay-es/oxlint-eslint-configs/eslint/recommended";
-import { rules as tsRecommended } from "@jay-es/oxlint-eslint-configs/typescript/recommended";
+import recommended from "@jay-es/oxlint-eslint-configs/eslint/recommended";
+import tsRecommended from "@jay-es/oxlint-eslint-configs/typescript/recommended";
 
 export default defineConfig({
   rules: {

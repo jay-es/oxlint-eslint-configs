@@ -16,14 +16,15 @@ export async function writeRulesFile(
 
   const output = `// Source: ${sourceDescription}
 
-export const rules = ${JSON.stringify(rules, null, 2)};
+export default ${JSON.stringify(rules, null, 2)};
 `;
 
   const dtsOutput = `// Source: ${sourceDescription}
 
 import type { DummyRuleMap } from "oxlint";
 
-export declare const rules: DummyRuleMap;
+declare const rules: DummyRuleMap;
+export default rules;
 `;
 
   await mkdir(path.dirname(resolvedPath), { recursive: true });
