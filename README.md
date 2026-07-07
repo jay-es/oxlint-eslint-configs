@@ -6,19 +6,23 @@ Each source config is mechanically filtered against oxlint's own [configuration 
 
 ## Usage
 
-Each config is published as a subpath export under `<plugin>/<config-name>`. Import the
-`rules` object and spread it into your `.oxlintrc.json` (or `oxlint.config.ts`) `rules` field.
+Each config is published as a subpath export under `<plugin>/<config-name>`. Since these
+are plain JS objects, spreading them requires a JS/TS-based `oxlint.config.ts` config
+(oxlint's [`.js`/`.ts` config support](https://oxc.rs/docs/guide/usage/linter/config.html)
+is experimental and requires running via Node.js).
 
 ```ts
+// oxlint.config.ts
+import { defineConfig } from "oxlint";
 import { rules as recommended } from "@jay-es/oxlint-eslint-configs/eslint/recommended";
 import { rules as tsRecommended } from "@jay-es/oxlint-eslint-configs/typescript/recommended";
 
-export default {
+export default defineConfig({
   rules: {
     ...recommended,
     ...tsRecommended,
   },
-};
+});
 ```
 
 ## Available configs
@@ -60,10 +64,11 @@ list except `oxc`, which has no upstream ESLint config to port from (it's oxlint
 
 ### `react` ([`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react))
 
-| Config              | Source                                                                         |
-| ------------------- | ------------------------------------------------------------------------------ |
-| `react/recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended) |
-| `react/all`         | [`all`](https://github.com/jsx-eslint/eslint-plugin-react#all)                 |
+| Config              | Source                                                                                                                 |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `react/recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended)                                         |
+| `react/all`         | [`all`](https://github.com/jsx-eslint/eslint-plugin-react#all)                                                         |
+| `react/jsx-runtime` | [`jsx-runtime`](https://github.com/jsx-eslint/eslint-plugin-react#jsx-runtime-recommended-with-caveats-for-react-1017) |
 
 ### `react-perf` ([`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf))
 
@@ -98,14 +103,18 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 ### `jsdoc` ([`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc))
 
 eslint-plugin-jsdoc ships many near-duplicate presets (combinations of contents/logical/
-requirements/stylistic with typescript/tsdoc flavors and error variants). Only the three
-below differ meaningfully after filtering down to the rules oxlint supports.
+requirements/stylistic with typescript/tsdoc flavors and error variants). Once filtered down
+to the rules oxlint supports, they collapse into exactly these 6 distinct rule sets (the
+"-flavor" variants are identical to their non-flavor counterparts and are skipped).
 
-| Config                         | Source                                                                               |
-| ------------------------------ | ------------------------------------------------------------------------------------ |
-| `jsdoc/recommended`            | [`recommended`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)            |
-| `jsdoc/recommended-error`      | [`recommended-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)      |
-| `jsdoc/recommended-typescript` | [`recommended-typescript`](https://github.com/gajus/eslint-plugin-jsdoc#recommended) |
+| Config                               | Source                                                                                     |
+| ------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `jsdoc/recommended`                  | [`recommended`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)                  |
+| `jsdoc/recommended-error`            | [`recommended-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)            |
+| `jsdoc/recommended-typescript`       | [`recommended-typescript`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)       |
+| `jsdoc/recommended-typescript-error` | [`recommended-typescript-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended) |
+| `jsdoc/recommended-tsdoc`            | [`recommended-tsdoc`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)            |
+| `jsdoc/recommended-tsdoc-error`      | [`recommended-tsdoc-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)      |
 
 ### `jsx-a11y` ([`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y))
 
@@ -115,6 +124,9 @@ below differ meaningfully after filtering down to the rules oxlint supports.
 | `jsx-a11y/strict`      | [`strict`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#usage)      |
 
 ### `node` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n))
+
+oxlint's `node` rule names match `eslint-plugin-n` (not the long-deprecated `eslint-plugin-node`),
+so rules are renamed from the `n/` prefix to the `node/` prefix oxlint uses.
 
 | Config                    | Source                                                                               |
 | ------------------------- | ------------------------------------------------------------------------------------ |
@@ -150,12 +162,13 @@ paths, which isn't resolved when just reading `rules`. The `flat/` configs embed
 chain as config array elements instead, so those are used here. Vue 2 presets (`vue2-*`)
 are not included.
 
-| Config                     | Source                                                                                                                                 |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `vue/essential`            | [`flat/essential`](https://eslint.vuejs.org/rules/#priority-a-essential-error-prevention)                                              |
-| `vue/strongly-recommended` | [`flat/strongly-recommended`](https://eslint.vuejs.org/rules/#priority-b-strongly-recommended-improving-readability)                   |
-| `vue/recommended`          | [`flat/recommended`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead)       |
-| `vue/recommended-error`    | [`flat/recommended-error`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead) |
+| Config                           | Source                                                                                                                                 |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `vue/essential`                  | [`flat/essential`](https://eslint.vuejs.org/rules/#priority-a-essential-error-prevention)                                              |
+| `vue/strongly-recommended`       | [`flat/strongly-recommended`](https://eslint.vuejs.org/rules/#priority-b-strongly-recommended-improving-readability)                   |
+| `vue/strongly-recommended-error` | [`flat/strongly-recommended-error`](https://eslint.vuejs.org/rules/#priority-b-strongly-recommended-improving-readability)             |
+| `vue/recommended`                | [`flat/recommended`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead)       |
+| `vue/recommended-error`          | [`flat/recommended-error`](https://eslint.vuejs.org/rules/#priority-c-recommended-minimizing-arbitrary-choices-and-cognitive-overhead) |
 
 ## Advanced: building your own filtered config
 

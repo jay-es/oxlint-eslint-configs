@@ -11,6 +11,7 @@ import { toKebabCase } from "../kebab-case.ts";
 const INCLUDED_CONFIG_NAMES = new Set([
   "flat/essential",
   "flat/strongly-recommended",
+  "flat/strongly-recommended-error",
   "flat/recommended",
   "flat/recommended-error",
 ]);

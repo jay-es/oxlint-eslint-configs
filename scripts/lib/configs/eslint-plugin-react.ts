@@ -4,10 +4,10 @@ import { mergeFlatConfigRules } from "../../../src/merge-flat-config-rules.ts";
 import type { GeneratedConfig } from "../generated-config.ts";
 import { toKebabCase } from "../kebab-case.ts";
 
-// "jsx-runtime" はルールを増やすのではなく、新しい JSX transform 向けに
-// recommended の一部ルールを無効化するための追加設定のため対象外。
+// "jsx-runtime" は新しい JSX transform 向けに recommended の一部ルールを無効化する
+// 小さな上書き用 config (他の config と組み合わせて使う想定)。
 // "flat" 配下は非 flat 版と同内容のエイリアスのため除外。
-const INCLUDED_CONFIG_NAMES = new Set(["recommended", "all"]);
+const INCLUDED_CONFIG_NAMES = new Set(["recommended", "all", "jsx-runtime"]);
 
 const OXLINT_FILE_PREFIX = OXLINT_PLUGIN_NAME_BY_SOURCE.react;
 
