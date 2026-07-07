@@ -20,6 +20,7 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   // @next/eslint-plugin-next は "@next/next/rule-name" のように、
   // プラグイン名自体に "/" を含む形でルールを登録している。
   "@next/next": "nextjs",
+  jsdoc: "jsdoc",
 };
 
 // プラグイン名に "/" を含むもの(例: "@next/next")を正しく切り出せるよう、

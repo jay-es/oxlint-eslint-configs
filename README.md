@@ -91,6 +91,18 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 | `import-stage-0`     | [`stage-0`](https://github.com/un-ts/eslint-plugin-import-x#stage-0)         |
 | `import-typescript`  | [`typescript`](https://github.com/un-ts/eslint-plugin-import-x#typescript)   |
 
+### [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)
+
+eslint-plugin-jsdoc ships many near-duplicate presets (combinations of contents/logical/
+requirements/stylistic with typescript/tsdoc flavors and error variants). Only the three
+below differ meaningfully after filtering down to the rules oxlint supports.
+
+| Config                         | Source                                                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------ |
+| `jsdoc-recommended`            | [`recommended`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)            |
+| `jsdoc-recommended-error`      | [`recommended-error`](https://github.com/gajus/eslint-plugin-jsdoc#recommended)      |
+| `jsdoc-recommended-typescript` | [`recommended-typescript`](https://github.com/gajus/eslint-plugin-jsdoc#recommended) |
+
 ### [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)
 
 | Config                    | Source                                                                               |
