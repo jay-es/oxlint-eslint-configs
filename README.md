@@ -68,6 +68,16 @@ export default {
 | `react-perf-recommended` | `recommended` |
 | `react-perf-all`         | `all`         |
 
+### [`@next/eslint-plugin-next`](https://nextjs.org/docs/app/api-reference/config/eslint)
+
+Rule keys are registered under the `@next/next` plugin name, which are renamed to the
+`nextjs/` prefix oxlint uses.
+
+| Config                   | Source                                                                                              |
+| ------------------------ | --------------------------------------------------------------------------------------------------- |
+| `nextjs-recommended`     | [`recommended`](https://nextjs.org/docs/app/api-reference/config/eslint#recommended-plugin-ruleset) |
+| `nextjs-core-web-vitals` | [`core-web-vitals`](https://nextjs.org/docs/app/api-reference/config/eslint#core-web-vitals)        |
+
 ### [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x)
 
 oxlint only has an `import/` namespace (no `import-x/`), so these are sourced from the
