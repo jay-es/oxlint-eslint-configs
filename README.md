@@ -6,10 +6,13 @@ Each source config is mechanically filtered against oxlint's own [configuration 
 
 ## Usage
 
+```bash
+npm install -D @jay-es/oxlint-eslint-configs
+```
+
 Each config is published as a default export under a `<plugin>/<config-name>` subpath.
 Since these are plain JS objects, spreading them requires a JS/TS-based `oxlint.config.ts`
-config (oxlint's [`.js`/`.ts` config support](https://oxc.rs/docs/guide/usage/linter/config.html)
-is experimental and requires running via Node.js).
+config.
 
 ```ts
 // oxlint.config.ts
@@ -109,10 +112,8 @@ better-maintained `eslint-plugin-import-x` and its rules are renamed to the `imp
 
 ### `jsdoc` ([`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc))
 
-eslint-plugin-jsdoc ships many near-duplicate presets (combinations of contents/logical/
-requirements/stylistic with typescript/tsdoc flavors and error variants). Once filtered down
-to the rules oxlint supports, they collapse into exactly these 6 distinct rule sets (the
-"-flavor" variants are identical to their non-flavor counterparts and are skipped).
+eslint-plugin-jsdoc ships many near-duplicate presets; only these 6 produce distinct rule
+sets once filtered down to what oxlint supports.
 
 | Config                               | Source                                                                                     |
 | ------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -164,10 +165,7 @@ so rules are renamed from the `n/` prefix to the `node/` prefix oxlint uses.
 
 ### `vue` ([`eslint-plugin-vue`](https://eslint.vuejs.org/rules/))
 
-Non-flat configs (e.g. `recommended`) use `extends` to chain to earlier presets via file
-paths, which isn't resolved when just reading `rules`. The `flat/` configs embed the full
-chain as config array elements instead, so those are used here. Vue 2 presets (`vue2-*`)
-are not included.
+Only the modern `flat/*` presets are used; Vue 2 presets are not included.
 
 | Config                           | Source                                                                                                                                 |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
