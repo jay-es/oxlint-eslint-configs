@@ -8,7 +8,9 @@ import { buildEslintPluginNConfigs } from "./eslint-plugin-n.ts";
 import { buildEslintPluginNextConfigs } from "./eslint-plugin-next.ts";
 import { buildEslintPluginPromiseConfigs } from "./eslint-plugin-promise.ts";
 import { buildEslintPluginReactConfigs } from "./eslint-plugin-react.ts";
+import { buildEslintPluginReactHooksConfigs } from "./eslint-plugin-react-hooks.ts";
 import { buildEslintPluginReactPerfConfigs } from "./eslint-plugin-react-perf.ts";
+import { buildEslintPluginReactRefreshConfigs } from "./eslint-plugin-react-refresh.ts";
 import { buildEslintPluginUnicornConfigs } from "./eslint-plugin-unicorn.ts";
 import { buildEslintPluginVitestConfigs } from "./eslint-plugin-vitest.ts";
 import { buildEslintPluginVueConfigs } from "./eslint-plugin-vue.ts";
@@ -22,6 +24,8 @@ export const CONFIG_BUILDERS: ConfigBuilder[] = [
   buildTypescriptEslintConfigs,
   buildEslintPluginUnicornConfigs,
   buildEslintPluginReactConfigs,
+  buildEslintPluginReactHooksConfigs,
+  buildEslintPluginReactRefreshConfigs,
   buildEslintPluginReactPerfConfigs,
   buildEslintPluginNextConfigs,
   buildEslintPluginImportXConfigs,

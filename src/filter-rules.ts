@@ -16,6 +16,10 @@ export const OXLINT_PLUGIN_NAME_BY_SOURCE: Record<string, string> = {
   promise: "promise",
   n: "node",
   react: "react",
+  // eslint-plugin-react-hooks と eslint-plugin-react-refresh のルールも、
+  // oxlint では eslint-plugin-react と同じ react/ 名前空間にまとめられている。
+  "react-hooks": "react",
+  "react-refresh": "react",
   "react-perf": "react-perf",
   // @next/eslint-plugin-next は "@next/next/rule-name" のように、
   // プラグイン名自体に "/" を含む形でルールを登録している。

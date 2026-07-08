@@ -62,13 +62,20 @@ list except `oxc`, which has no upstream ESLint config to port from (it's oxlint
 | `unicorn/unopinionated` | [`unopinionated`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-) |
 | `unicorn/all`           | [`all`](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs-)           |
 
-### `react` ([`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react))
+### `react` ([`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react), [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks), [`eslint-plugin-react-refresh`](https://github.com/ArnaudBarre/eslint-plugin-react-refresh))
 
-| Config              | Source                                                                                                                 |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `react/recommended` | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended)                                         |
-| `react/all`         | [`all`](https://github.com/jsx-eslint/eslint-plugin-react#all)                                                         |
-| `react/jsx-runtime` | [`jsx-runtime`](https://github.com/jsx-eslint/eslint-plugin-react#jsx-runtime-recommended-with-caveats-for-react-1017) |
+`eslint-plugin-react-hooks` and `eslint-plugin-react-refresh` rules also live in oxlint's
+`react/` namespace, so they're included here too instead of getting their own top-level entry.
+
+| Config                      | Source                                                                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `react/recommended`         | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended)                                                   |
+| `react/all`                 | [`all`](https://github.com/jsx-eslint/eslint-plugin-react#all)                                                                   |
+| `react/jsx-runtime`         | [`jsx-runtime`](https://github.com/jsx-eslint/eslint-plugin-react#jsx-runtime-recommended-with-caveats-for-react-1017)           |
+| `react/hooks-recommended`   | [`eslint-plugin-react-hooks` recommended-latest](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks) |
+| `react/refresh-recommended` | [`eslint-plugin-react-refresh` recommended](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#usage)                    |
+| `react/refresh-vite`        | [`eslint-plugin-react-refresh` vite](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#usage)                           |
+| `react/refresh-next`        | [`eslint-plugin-react-refresh` next](https://github.com/ArnaudBarre/eslint-plugin-react-refresh#usage)                           |
 
 ### `react-perf` ([`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf))
 
