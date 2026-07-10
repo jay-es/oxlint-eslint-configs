@@ -1,4 +1,5 @@
 import type { ConfigBuilder } from "../generated-config.ts";
+import { buildEslintConfigNextConfigs } from "./eslint-config-next.ts";
 import { buildEslintJsConfigs } from "./eslint-js.ts";
 import { buildEslintPluginImportXConfigs } from "./eslint-plugin-import-x.ts";
 import { buildEslintPluginJestConfigs } from "./eslint-plugin-jest.ts";
@@ -28,6 +29,7 @@ export const CONFIG_BUILDERS: ConfigBuilder[] = [
   buildEslintPluginReactRefreshConfigs,
   buildEslintPluginReactPerfConfigs,
   buildEslintPluginNextConfigs,
+  buildEslintConfigNextConfigs,
   buildEslintPluginImportXConfigs,
   buildEslintPluginJsdocConfigs,
   buildEslintPluginJsxA11yConfigs,

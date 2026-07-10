@@ -67,9 +67,6 @@ list except `oxc`, which has no upstream ESLint config to port from (it's oxlint
 
 ### `react` ([`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react), [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks), [`eslint-plugin-react-refresh`](https://github.com/ArnaudBarre/eslint-plugin-react-refresh))
 
-`eslint-plugin-react-hooks` and `eslint-plugin-react-refresh` rules also live in oxlint's
-`react/` namespace, so they're included here too instead of getting their own top-level entry.
-
 | Config                      | Source                                                                                                                           |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `react/recommended`         | [`recommended`](https://github.com/jsx-eslint/eslint-plugin-react#recommended)                                                   |
@@ -87,20 +84,23 @@ list except `oxc`, which has no upstream ESLint config to port from (it's oxlint
 | `react-perf/recommended` | `recommended` |
 | `react-perf/all`         | `all`         |
 
-### `nextjs` ([`@next/eslint-plugin-next`](https://nextjs.org/docs/app/api-reference/config/eslint))
+### `nextjs` ([`@next/eslint-plugin-next`](https://nextjs.org/docs/app/api-reference/config/eslint), [`eslint-config-next`](https://www.npmjs.com/package/eslint-config-next))
 
-Rule keys are registered under the `@next/next` plugin name, which are renamed to the
-`nextjs/` prefix oxlint uses.
+`recommended`/`core-web-vitals` only contain the `@next/eslint-plugin-next` rules; the
+`eslint-config-next` variants additionally bundle `react`/`react-hooks` recommended rules,
+matching what `eslint-config-next` itself ships.
 
-| Config                   | Source                                                                                              |
-| ------------------------ | --------------------------------------------------------------------------------------------------- |
-| `nextjs/recommended`     | [`recommended`](https://nextjs.org/docs/app/api-reference/config/eslint#recommended-plugin-ruleset) |
-| `nextjs/core-web-vitals` | [`core-web-vitals`](https://nextjs.org/docs/app/api-reference/config/eslint#core-web-vitals)        |
+| Config                                      | Source                                                                                                |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `nextjs/recommended`                        | [`recommended`](https://nextjs.org/docs/app/api-reference/config/eslint#recommended-plugin-ruleset)   |
+| `nextjs/core-web-vitals`                    | [`core-web-vitals`](https://nextjs.org/docs/app/api-reference/config/eslint#core-web-vitals)          |
+| `nextjs/eslint-config-next`                 | [`eslint-config-next`](https://www.npmjs.com/package/eslint-config-next) (react + react-hooks + next) |
+| `nextjs/eslint-config-next-core-web-vitals` | [`eslint-config-next/core-web-vitals`](https://www.npmjs.com/package/eslint-config-next)              |
 
 ### `import` ([`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x))
 
-oxlint only has an `import/` namespace (no `import-x/`), so these are sourced from the
-better-maintained `eslint-plugin-import-x` and its rules are renamed to the `import/` prefix.
+Sourced from the better-maintained `eslint-plugin-import-x` rather than the original,
+largely-unmaintained `eslint-plugin-import`.
 
 | Config               | Source                                                                       |
 | -------------------- | ---------------------------------------------------------------------------- |
@@ -133,8 +133,7 @@ sets once filtered down to what oxlint supports.
 
 ### `node` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n))
 
-oxlint's `node` rule names match `eslint-plugin-n` (not the long-deprecated `eslint-plugin-node`),
-so rules are renamed from the `n/` prefix to the `node/` prefix oxlint uses.
+Sourced from `eslint-plugin-n`, not the long-deprecated `eslint-plugin-node`.
 
 | Config                    | Source                                                                               |
 | ------------------------- | ------------------------------------------------------------------------------------ |
