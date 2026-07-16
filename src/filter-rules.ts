@@ -1,4 +1,4 @@
-import { getOxlintRulesByPlugin } from "./oxlint-schema.ts";
+import { getOxlintRuleOptionKeys, getOxlintRulesByPlugin } from "./oxlint-schema.ts";
 import { parseRuleKey } from "./parse-rule-key.ts";
 
 /**
@@ -53,6 +53,28 @@ function toOxlintRuleKey(oxlintPlugin: string, ruleName: string): string {
 }
 
 /**
+ * ["severity", optionsObject] 形の設定値から、oxlint が未対応のオプションキーを取り除く。
+ * oxlint 側のオプションスキーマが「未知キーを許さない」形(additionalProperties: false)の
+ * 場合だけ絞り込みを行い、任意キーを許すスキーマや、値がこの形でない場合はそのまま返す。
+ * 例: eslint-plugin-jsx-a11y の "includeRoles" は oxlint に存在しないため取り除かれる。
+ */
+function filterRuleOptions(oxlintRuleKey: string, value: unknown): unknown {
+  if (!Array.isArray(value) || value.length < 2) return value;
+
+  const [severity, options] = value;
+  if (options === null || typeof options !== "object" || Array.isArray(options)) return value;
+
+  const allowedKeys = getOxlintRuleOptionKeys().get(oxlintRuleKey);
+  if (allowedKeys === undefined) return value;
+
+  const filteredOptions = Object.fromEntries(
+    Object.entries(options).filter(([key]) => allowedKeys.has(key)),
+  );
+
+  return Object.keys(filteredOptions).length > 0 ? [severity, filteredOptions] : severity;
+}
+
+/**
  * rules のうち、oxlint が対応しているルールだけを残し、キーを oxlint の命名規則
  * (例: "@typescript-eslint/no-explicit-any" → "typescript/no-explicit-any")に変換する。
  * 複数プラグインのルールが混在する config でもそのまま渡せる。
@@ -87,6 +109,11 @@ export function filterSupportedRules(rules: Record<string, unknown>): Record<str
     if (isDisabledInFavorOfPluginRule && oxlintRulesByPlugin.eslint?.has(ruleName)) {
       result[ruleName] = value;
     }
+  }
+
+  // 上記2パスで生き残った全ルールに対し、oxlint が未対応のオプションキーを取り除く。
+  for (const [ruleKey, value] of Object.entries(result)) {
+    result[ruleKey] = filterRuleOptions(ruleKey, value);
   }
 
   return result;

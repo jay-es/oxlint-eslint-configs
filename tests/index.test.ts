@@ -51,3 +51,34 @@ test("typescript-eslint all config keeps class-methods-use-this enabled", async 
   expect(filtered["class-methods-use-this"]).toBe("error");
   expect(filtered["typescript/class-methods-use-this"]).toBeUndefined();
 });
+
+test("filterSupportedRules strips option keys that oxlint doesn't recognize", () => {
+  // eslint-plugin-jsx-a11y の includeRoles は oxlint のスキーマに存在しないため除去される
+  const filtered = filterSupportedRules({
+    "jsx-a11y/control-has-associated-label": [
+      "off",
+      { ignoreElements: ["audio"], includeRoles: ["alert", "dialog"] },
+    ],
+  });
+
+  expect(filtered["jsx-a11y/control-has-associated-label"]).toStrictEqual([
+    "off",
+    { ignoreElements: ["audio"] },
+  ]);
+});
+
+test("filterSupportedRules keeps arbitrary option keys for rules with an open option schema", () => {
+  // no-interactive-element-to-noninteractive-role のオプションはタグ名 -> ロール名の
+  // 任意キーマップなので、キーを列挙して絞り込むことはできない(そのまま残す)
+  const filtered = filterSupportedRules({
+    "jsx-a11y/no-interactive-element-to-noninteractive-role": [
+      "error",
+      { tr: ["none", "presentation"] },
+    ],
+  });
+
+  expect(filtered["jsx-a11y/no-interactive-element-to-noninteractive-role"]).toStrictEqual([
+    "error",
+    { tr: ["none", "presentation"] },
+  ]);
+});
