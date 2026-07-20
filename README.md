@@ -1,8 +1,11 @@
 # @jay-es/oxlint-eslint-configs
 
-Ready-to-use [oxlint](https://oxc.rs/docs/guide/usage/linter.html) configs generated from popular ESLint configs (`@eslint/js`, `typescript-eslint`, ...), filtered down to only the rules oxlint actually supports.
+[![npm version](https://img.shields.io/npm/v/@jay-es/oxlint-eslint-configs.svg)](https://www.npmjs.com/package/@jay-es/oxlint-eslint-configs)
+[![license](https://img.shields.io/npm/l/@jay-es/oxlint-eslint-configs.svg)](./LICENSE)
 
-Each source config is mechanically filtered against oxlint's own [configuration schema](https://github.com/oxc-project/oxc/blob/main/npm/oxlint/configuration_schema.json), so unsupported rules are dropped and rule names are rewritten to oxlint's naming convention (e.g. `@typescript-eslint/no-explicit-any` → `typescript/no-explicit-any`).
+Ready-to-use [oxlint](https://oxc.rs/docs/guide/usage/linter.html) configs ported from the ESLint plugins that oxlint's own built-in plugins are modeled after (`@eslint/js`, `typescript-eslint`, `eslint-plugin-unicorn`, `eslint-plugin-react`, ...).
+
+Each source config is mechanically filtered against oxlint's own [configuration schema](https://github.com/oxc-project/oxc/blob/main/npm/oxlint/configuration_schema.json), so unsupported rules and options are dropped and rule names are rewritten to oxlint's naming convention (e.g. `@typescript-eslint/no-explicit-any` → `typescript/no-explicit-any`).
 
 ## Usage
 
@@ -214,3 +217,7 @@ pnpm run test
 ```bash
 pnpm run build
 ```
+
+## License
+
+[MIT](./LICENSE)
