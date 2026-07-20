@@ -1,6 +1,6 @@
 {
   "name": "@jay-es/oxlint-eslint-configs",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Ready-to-use oxlint configs ported from popular ESLint presets (typescript-eslint, unicorn, react, and more), auto-filtered to rules oxlint actually supports.",
   "homepage": "https://github.com/jay-es/oxlint-eslint-configs#readme",
   "bugs": {
