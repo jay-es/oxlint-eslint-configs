@@ -24,7 +24,9 @@ jobs:
       - name: ビルド
         run: vp run build
       - name: npm から最新の公開バージョンを取得
-        run: npm pack @jay-es/oxlint-eslint-configs@latest --pack-destination /tmp/published
+        run: |
+          mkdir -p /tmp/published
+          npm pack @jay-es/oxlint-eslint-configs@latest --pack-destination /tmp/published
       - name: 取得したパッケージを展開
         run: tar -xzf /tmp/published/*.tgz -C /tmp/published
       - name: dist/ を最新公開バージョンと比較
