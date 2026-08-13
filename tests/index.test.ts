@@ -28,7 +28,9 @@ test("typescript-eslint recommended rules supported by oxlint are renamed to the
   expect(filtered["typescript/no-explicit-any"]).toBe("error");
   // typescript-eslint の recommended には含まれるが、oxlint の対応表には存在しないルールの例
   expect(filtered["typescript/no-array-constructor"]).toBeUndefined();
-});
+  // typescript-eslint の初回動的 import はコールドキャッシュ時に数十秒かかることがあるため、
+  // 既定の 5000ms タイムアウトだと CI などまっさらな環境で落ちる
+}, 60_000);
 
 test("filterSupportedRules restores the base rule when its oxlint-unsupported plugin counterpart disabled it", () => {
   // typescript-eslint の "all" などにある典型的なパターン:

@@ -1,0 +1,35 @@
+name: Dist Drift Check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dist-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Vite+ のセットアップ
+        uses: voidzero-dev/setup-vp@313600b80b104eadebb9111787d37a2e83e014ca # v1.17.0
+        with:
+          node-version-file: .node-version
+          cache: true
+      - name: 依存関係のインストール
+        run: vp install
+      - name: ビルド
+        run: vp run build
+      - name: npm から最新の公開バージョンを取得
+        run: npm pack @jay-es/oxlint-eslint-configs@latest --pack-destination /tmp/published
+      - name: 取得したパッケージを展開
+        run: tar -xzf /tmp/published/*.tgz -C /tmp/published
+      - name: dist/ を最新公開バージョンと比較
+        run: |
+          if ! diff -rq dist /tmp/published/package/dist; then
+            echo "::error::dist/ differs from the latest published package on npm. A release is needed."
+            exit 1
+          fi
