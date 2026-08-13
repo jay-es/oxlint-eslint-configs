@@ -3,14 +3,18 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       dependencies:
         update-types:
           - minor
           - patch
+    ignore:
+      # @types/node は .node-version で固定している Node.js のメジャーバージョンに追従させる
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
